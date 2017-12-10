@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 from collections import defaultdict
 from pwgen import pwgen
+import sys
 
 
 # Returns a dict with 3gram -> count
@@ -54,8 +55,13 @@ if __name__ == '__main__':
 	max_word = ""
 	max_c = 0
 
+	length = 6
+	print sys.argv
+	if len(sys.argv) == 2:
+		length = int(sys.argv[1])
+
 	while True:
-		word = pwgen(6).lower()
+		word = pwgen(length).lower()
 		# no starting number
 		if word[0] in "0123456789":
 			continue
