@@ -56,7 +56,6 @@ if __name__ == '__main__':
 	max_c = 0
 
 	length = 6
-	print sys.argv
 	if len(sys.argv) == 2:
 		length = int(sys.argv[1])
 
