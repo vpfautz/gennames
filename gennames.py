@@ -60,19 +60,22 @@ if __name__ == '__main__':
 	if len(sys.argv) == 2:
 		length = int(sys.argv[1])
 
-	while True:
-		word = pwgen(length).lower()
-		# no starting number
-		if word[0] in "0123456789":
-			continue
+	try:
+		while True:
+			word = pwgen(length).lower()
+			# no starting number
+			if word[0] in "0123456789":
+				continue
 
-		c = rate_word(word)
-		if c > max_c:
-			# print word with rating, if it's current maximum
-			print word,c
-			max_c = c
-			max_word = word
-		elif c > max_c/2**(len(word)-2):
-			# print word with rating, if it's near current maximum
-			print word,c
+			c = rate_word(word)
+			if c > max_c:
+				# print word with rating, if it's current maximum
+				print word,c
+				max_c = c
+				max_word = word
+			elif c > max_c/2**(len(word)-2):
+				# print word with rating, if it's near current maximum
+				print word,c
+	except KeyboardInterrupt:
+		pass
 
